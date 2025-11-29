@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gaming web2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0f0f1a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #1a1a2e;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #6c5ce7;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #6c5ce7;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(15, 15, 26, 0.8), rgba(15, 15, 26, 0.9)), 
+                        url('https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: #e0e0e0;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #6c5ce7;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #5b4bc4;
+            transform: translateY(-3px);
+        }
+
+        /* Games Section */
+        .section-title {
+            text-align: center;
+            margin: 50px 0 30px;
+            font-size: 32px;
+            color: #6c5ce7;
+        }
+
+        .games-section {
+            padding: 50px 0;
+        }
+
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #1a1a2e;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .tab.active {
+            background-color: #6c5ce7;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .game-card {
+            background-color: #1a1a2e;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .game-image {
+            height: 180px;
+            background-color: #2d2d44;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c5ce7;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .game-info {
+            padding: 20px;
+        }
+
+        .game-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .game-description {
+            color: #b0b0b0;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a2e;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #6c5ce7;
+            margin-bottom: 20px;
+        }
+
+        .footer-tagline {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #e0e0e0;
+        }
+
+        .copyright {
+            margin-top: 30px;
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .games-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    /* Header */
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">BYTE_FORGE GAMES</a>
+                <ul class="nav-links">
+                    <li><a href="#" id="home-link">Home</a></li>
+                    <li><a href="#description" id="description-link">Description</a></li>
+                    <li><a href="#games" id="games-link">Games</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+   
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>GAMERS LETS GOO: The Journey Begins</h1>
+                <p>Embark on an epic adventure through mystical realms and discover the secrets of the ancient world.</p>
+                <a href="#description" class="btn">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Description Section -->
+    <section id="description" class="games-section">
+        <div class="container">
+            <h2 class="section-title">About Our Games</h2>
+            <div class="games-grid">
+                <div class="game-card">
+                    <div class="game-image">GAMES</div>
+                    <div class="game-info">
+                        <h3 class="game-title">Our Mission</h3>
+                        <p class="game-description">At BYTE_FORGE Games, we create immersive gaming experiences that transport players to extraordinary worlds. Our team of passionate developers and artists work tirelessly to craft games that challenge the imagination and inspire creativity.</p>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <div class="game-image">INNOVATION</div>
+                    <div class="game-info">
+                        <h3 class="game-title">Innovation & Technology</h3>
+                        <p class="game-description">We leverage cutting-edge technology and innovative game design to create experiences that push the boundaries of interactive entertainment. From stunning visuals to engaging gameplay mechanics, we're committed to excellence.</p>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <div class="game-image">COMMUNITY</div>
+                    <div class="game-info">
+                        <h3 class="game-title">Community Focus</h3>
+                        <p class="game-description">Our players are at the heart of everything we do. We actively listen to feedback and involve our community in the development process to create games that resonate with our audience and stand the test of time.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="games" class="games-section">
+        <div class="container">
+            <h2 class="section-title">Featured Games</h2>
+            <div class="category-tabs">
+                <div class="tab active">Trending Games</div>
+                <div class="tab">New Releases</div>
+                <div class="tab">Community Picks</div>
+            </div>
+            <div class="games-grid">
+                <div class="game-card">
+                    <div class="game-image">STARFALL ODYSSEY</div>
+                    <div class="game-info">
+                        <h3 class="game-title">STARFALL ODYSSEY</h3>
+                        <p class="game-description">Embark on an interstellar journey across the cosmos. Explore distant galaxies, encounter alien civilizations, and uncover the mysteries of the universe.</p>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <div class="game-image">DRAGON'S CREST</div>
+                    <div class="game-info">
+                        <h3 class="game-title">DRAGON'S CREST</h3>
+                        <p class="game-description">Enter a realm of magic and mythical creatures. Master ancient spells, forge powerful alliances, and face legendary dragons in this epic fantasy adventure.</p>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <div class="game-image">ORBITAL FRONTIER</div>
+                    <div class="game-info">
+                        <h3 class="game-title">ORBITAL FRONTIER</h3>
+                        <p class="game-description">Build and manage your own space station at the edge of known space. Research new technologies, trade with alien species, and defend your frontier outpost.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">BYTE_FORGE GAMES</div>
+            <div class="footer-tagline">EXPLORE.CONNECT.PLAY</div>
+            <div class="copyright">© 2025 BYTE_FORGE Games. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        document.getElementById('home-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        document.getElementById('description-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('description').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        document.getElementById('games-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('games').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Tab functionality
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                tabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
